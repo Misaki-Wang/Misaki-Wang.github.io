@@ -133,14 +133,14 @@ extra_css:
 # Page tree
 nav:
   - Home: index.md
-  - Vim: Vim.md
-  - Lecture Note: 
-    # - Introduction: 1_Introduction.md
-    - Pattern Classifiers and Their Assessment: 2_Pattern Classifiers and Their Assessment.md
-    - Classical Linear Machines : 3_Classical Linear Machines.md
-    - Multi-category Classification and Nonlinear Classification : 4_Multi-category Classification and Nonlinear Classification.md
-    - Classical Artificial Neural Network : 5_Classical Artificial Neural Network.md
-    - Support Vector Machine : 6_Support Vector Machine.md
-    - Decision Trees,Random Forest and Ensemble Learning : 9_Decision Trees,Random Forest and Ensemble Learning.md
-    - Hidden Markov Models and Introduction to Graphic Model : 12_Hidden Markov Models and Introduction to Graphic Model.md
-    - Clustering-Unsupervised Pattern Recognition : 14_Clustering Unsupervised Pattern Recognition.md
+  # - Vim: Vim.md
+  # - Lecture Note: 
+  #   # - Introduction: 1_Introduction.md
+  #   - Pattern Classifiers and Their Assessment: 2_Pattern Classifiers and Their Assessment.md
+  #   - Classical Linear Machines : 3_Classical Linear Machines.md
+  #   - Multi-category Classification and Nonlinear Classification : 4_Multi-category Classification and Nonlinear Classification.md
+  #   - Classical Artificial Neural Network : 5_Classical Artificial Neural Network.md
+  #   - Support Vector Machine : 6_Support Vector Machine.md
+  #   - Decision Trees,Random Forest and Ensemble Learning : 9_Decision Trees,Random Forest and Ensemble Learning.md
+  #   - Hidden Markov Models and Introduction to Graphic Model : 12_Hidden Markov Models and Introduction to Graphic Model.md
+  #   - Clustering-Unsupervised Pattern Recognition : 14_Clustering Unsupervised Pattern Recognition.md
