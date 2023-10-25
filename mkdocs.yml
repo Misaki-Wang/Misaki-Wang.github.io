@@ -57,11 +57,11 @@ theme:
     text: Noto Sans SC
     code: Fira Code
 #   favicon: assets/images/favicon.png
-#   logo: assets/images/logo.png
-#   icon:
-#     logo: logo
-#     repo: fontawesome/brands/github
-#     edit: material/file-edit-outline
+  logo: assets/images/misaki-logo.png
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
+    edit: material/file-edit-outline
 
 # extra:
 #   social:
@@ -134,8 +134,10 @@ extra_css:
 
 # Page tree
 nav:
-  - Home: index.md
-  # - Vim: Vim.md
+  - Home: 
+    - index.md
+  - Computer Science: 
+    - Missing-semester.md
   # - Lecture Note: 
   #   # - Introduction: 1_Introduction.md
   #   - Pattern Classifiers and Their Assessment: 2_Pattern Classifiers and Their Assessment.md
