@@ -137,7 +137,8 @@ nav:
   - Home: 
     - index.md
   - Computer Science: 
-    - Missing-semester.md
+    - Missing Semester: Computer-Science/Missing-semester.md
+    - Git: Computer-Science/git.md
   # - Lecture Note: 
   #   # - Introduction: 1_Introduction.md
   #   - Pattern Classifiers and Their Assessment: 2_Pattern Classifiers and Their Assessment.md
