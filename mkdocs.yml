@@ -139,13 +139,17 @@ nav:
   - Computer Science: 
     - Missing Semester: Computer-Science/Missing-semester.md
     - Git: Computer-Science/git.md
-  # - Lecture Note: 
-  #   # - Introduction: 1_Introduction.md
-  #   - Pattern Classifiers and Their Assessment: 2_Pattern Classifiers and Their Assessment.md
-  #   - Classical Linear Machines : 3_Classical Linear Machines.md
-  #   - Multi-category Classification and Nonlinear Classification : 4_Multi-category Classification and Nonlinear Classification.md
-  #   - Classical Artificial Neural Network : 5_Classical Artificial Neural Network.md
-  #   - Support Vector Machine : 6_Support Vector Machine.md
-  #   - Decision Trees,Random Forest and Ensemble Learning : 9_Decision Trees,Random Forest and Ensemble Learning.md
-  #   - Hidden Markov Models and Introduction to Graphic Model : 12_Hidden Markov Models and Introduction to Graphic Model.md
-  #   - Clustering-Unsupervised Pattern Recognition : 14_Clustering Unsupervised Pattern Recognition.md
+  - Static Analysis:
+    - Intro: Static-Analysis/1-intro.md
+    - Intermediate Representation(IR): Static-Analysis/2-Intermediate Representation.md
+    - Data Flow Analysis-Applications: Static-Analysis/3-Data Flow Analysis - Applications.md
+    - Data Flow Analysis-Foundations: Static-Analysis/4-Data Flow Analysis - Foundations.md
+    - Interprocedural Analysis: Static-Analysis/5-Interprocedural Analysis.md
+    - Pointer Analysis: Static-Analysis/6-Pointer Analysis - intro.md
+    - Pointer Analysis-Foundations: Static-Analysis/7-Pointer Analysis - Foundations.md
+    - Pointer Analysis-Context Sensitivity: Static-Analysis/8-Pointer Analysis - Context Sensitivity.md
+    - Static Analysis for Security: Static-Analysis/9-Static Analysis for Security.md
+    - Datalog-Based Program Analysis: Static-Analysis/10-Datalog-Based Program Analysis.md
+    - CFL-Reachability and IFDS: Static-Analysis/11-CFL-Reachability and IFDS.md
+    - Soundness and Soundiness: Static-Analysis/12-Soundness and Soundiness.md
+
