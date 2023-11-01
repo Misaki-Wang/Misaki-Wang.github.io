@@ -56,7 +56,7 @@ theme:
   font:
     text: Noto Sans SC
     code: Fira Code
-#   favicon: assets/images/favicon.png
+  favicon: assets/images/misaki-logo.png
   logo: assets/images/misaki-logo.png
   icon:
     logo: logo
