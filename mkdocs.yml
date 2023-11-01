@@ -15,7 +15,7 @@ copyright: Copyright &copy; 2023 Misaki
 # Configuration
 theme:
   name: material
-  language: zh
+  language: en
   features:
     - announce.dismiss
     - content.action.edit
