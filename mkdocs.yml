@@ -145,7 +145,7 @@ nav:
     - Data Flow Analysis-Applications: Static-Analysis/3-Data Flow Analysis - Applications.md
     - Data Flow Analysis-Foundations: Static-Analysis/4-Data Flow Analysis - Foundations.md
     - Interprocedural Analysis: Static-Analysis/5-Interprocedural Analysis.md
-    - Pointer Analysis: Static-Analysis/6-Pointer Analysis - intro.md
+    - Pointer Analysis-Intro: Static-Analysis/6-Pointer Analysis - intro.md
     - Pointer Analysis-Foundations: Static-Analysis/7-Pointer Analysis - Foundations.md
     - Pointer Analysis-Context Sensitivity: Static-Analysis/8-Pointer Analysis - Context Sensitivity.md
     - Static Analysis for Security: Static-Analysis/9-Static Analysis for Security.md
