@@ -7,7 +7,7 @@
 Motivation
 * **为什么** 要引入过程间分析？
 
-Call Graph Construction \(CHA\)
+Call Graph Construction
 * 介绍一个过程间分析 **必要的数据结构Call Graph**
 * 当前有数种方法来**构建Call Graph**，本节介绍其中**速度最快的一种（Class hierarchy analysis，简称CHA）**
 
@@ -20,38 +20,42 @@ Interprocedural Data-Flow Analysis
 
 ## Motivation
 
-之前的章节中都没有考虑方法调用，然而在实际的程序中方法调用非常常见，那么我们如何分析带方法调用的程序呢？最简单的处理方式是（这里仍然以常量传播作为一个例子）：做最保守的假设，即**为函数调用返回NAC**。而这种情况会**丢失精度**。**引入过程间分析能够提高精度。**如果使用最简单的处理方式，下图中的n和y分析结果都不是常量，尽管我们能够一眼看出他们的运行时值是n=10，y=43。
+之前的章节中都没有考虑方法调用，然而在实际的程序中方法调用非常常见，那么我们如何分析带方法调用的程序呢？
+最简单的处理方式是（这里仍然以常量传播作为一个例子）：做最保守的假设，即**为函数调用返回NAC**。而这种情况会**丢失精度**。**引入过程间分析能够提高精度。**
+如果使用最简单的处理方式，下图中的n和y分析结果都不是常量，尽管我们能够一眼看出他们的运行时值是n=10，y=43。
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954944.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954944.png" style="zoom: 50%;" />
 
 ## Call Graph Construction
 
-接下来我们讨论一个必要的数据结构Call Graph，中文可以理解为调用关系图。
+接下来我们讨论一个必要的数据结构**Call Graph**，中文可以理解为调用关系图。
 
 ### Definition of Call Graph
 
 > A representation of calling relationships in the program.
 
-调用关系图表达调用关系（中文讲起来确实很奇怪），一个简单的例子如下：
+Call Graph表达调用关系，一个简单的例子如下：
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954949.png)
 
 ### Call Graph Construction
 
-Call Graph有很多种不同的构造方法，我们接下来会讲解两个极端：最准确的和最快速的。
+Call Graph有很多种不同的构造方法，我们接下来会讲解两个极端：most **precise** and most **efficient**
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954964.png)
 
 #### Call types in Java
 
-本课主要关注Java的调用关系图构建。为此，我们需要先了解Java中调用的类型。Java中call可分为三类（不需要理解透彻，之后会详细介绍）：
+本课主要关注Java的调用关系图构建。为此，我们需要先了解Java中调用的类型。
+Java中call可分为三类（不需要理解透彻，之后会详细介绍）：
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954969.png)
 
 * Instruction：指Java的**IR中的指令**
 * Receiver objects：方法调用对应的实例对象（static方法调用不需要对应实例）。
 * Target methods：表达**IR指令到被调用目标方法的映射关系**
-* Num of target methods：call对应的可能被调用的目标方法的数量。Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。所以**Virtual call的可能对象可能超过1个**。
+* Num of target methods：call对应的可能被调用的目标方法的数量。
+  Virtual call与动态绑定和多态实现有关，可以对应多个对象下的重写方法。所以**Virtual call的可能对象可能超过1个**。
 * Determinacy：指什么时候能够确定这个call的对应方法。Virtual call与多态有关，只能在运行时决定调用哪一个具体方法的实现。其他两种call都和多态机制不相关，编译时刻就可以确定。
 
 #### Virtual call and dispatch
@@ -75,13 +79,13 @@ Java中Dispatch机制决定具体调用哪个方法：c是一个类的定义，m
 
 Q：两次对foo的调用分别调用了哪个类的foo？
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954557.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954557.png" style="zoom:50%;" />
 
 A：分别调用A和C中定义的foo方法。
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954575.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954575.png" style="zoom:50%;" />
 
-## Class Hierarchy Analysis
+## Class Hierarchy Analysis(CHA)
 
 ### Definition of CHA
 
@@ -110,7 +114,8 @@ A：分别调用A和C中定义的foo方法。
 
 **Static call**
 
-* 对于不了解OOP中静态方法的同学可以参考[这里](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)。具体来说，静态方法调用前写的是类名，而非静态方法调用前写的是变量或指针名。静态方法调用不需要依赖实例。 
+* 对于不了解OOP中静态方法的同学可以参考[这里](https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/)。
+  具体来说，静态方法调用前写的是类名，而非静态方法调用前写的是变量或指针名。静态方法调用不需要依赖实例。 
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954620.png)
 
@@ -147,7 +152,9 @@ A：分别调用A和C中定义的foo方法。
 
 ### CHA的应用
 
-常用于IDE中，给用户提供提示。比如写一小段测试代码，看看b.foo\(\)可能会调用哪些函数签名。可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
+常用于IDE中，给用户提供提示。比如写一小段测试代码，看看b.foo\(\)可能会调用哪些函数签名。
+可以看出CHA分析中认为`b.foo()`可能调用A、C、D中的`foo()`方法。
+（实际上这并不准确，因为b实际上是B类对象，不会调用子类C、D中的方法，但胜在快速）
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954997.png)
 
@@ -155,15 +162,19 @@ A：分别调用A和C中定义的foo方法。
 
 #### Idea
 
-* Build call graph for whole program via CHA
-  * 通过CHA构造整个程序的call graph
-* Start from entry methods \(focus on main method\)
-  * 通常从main函数开始
-* For each reachable method 𝑚, resolve target methods for each call site 𝑐𝑠 in 𝑚 via CHA \(Resolve\(𝑐𝑠\)\)
-  * 递归地处理每个可达的方法
-* Repeat until no new method is discovered
-  * 当不能拓展新的可达方法时停止
-* 整个过程和计算理论中求闭包的过程很相似
+Build call graph for whole program via CHA
+* 通过CHA构造整个程序的call graph
+
+Start from entry methods \(focus on main method\)
+* 通常从main函数开始
+
+For each reachable method 𝑚, resolve target methods for each call site 𝑐𝑠 in 𝑚 via CHA \(Resolve\(𝑐𝑠\)\)
+* 递归地处理每个可达的方法
+
+Repeat until no new method is discovered
+* 当不能拓展新的可达方法时停止
+
+整个过程和计算理论中求闭包的过程很相似
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954018.png)
 
@@ -193,9 +204,7 @@ A：分别调用A和C中定义的foo方法。
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954733.png)
 
-_注：忽略new A\(\)对构造函数的调用，这不是例子的重点。_
-
-**这个例子是对本小节的总结，如果不能读懂并独立推导建议重读一遍。如果你理解了第一到第六课的内容但是觉得上面的内容写得不清晰，可以到本书简介中提到的QQ群交流吐槽。**
+*注：忽略new A()对构造函数的调用，这不是例子的重点。*
 
 ### Interprocedural Control-Flow Graph
 
@@ -220,14 +229,16 @@ ICFG可以通过CFG加上两种边构造得到。
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954651.png)
 
-Edge transfer处理引入的call & return edge。为此，我们需要**在之前章节的CFG基础上增加三种transfer函数。**
+Edge transfer处理引入的call & return edge。为此，我们需要**在之前章节的CFG基础上增加三种transfer函数:** 
 
-* Call edge transfer
-  * 从调用者向被调用者传递参数
-* Return edge transfer
-  * 被调用者向调用者传递返回值
-* Node transfer
-  * 大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 
+Call edge transfer
+* 从调用者向被调用者传递参数
+
+Return edge transfer
+* 被调用者向调用者传递返回值
+
+Node transfer
+* 大部分与过程内的常数传播分析一样，不过对于每一个函数调用，都要kill掉LHS（Left hand side）的变量 
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011954670.png)
 
