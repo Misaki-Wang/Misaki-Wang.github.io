@@ -13,9 +13,10 @@
 
 ## Motivation
 
-接下来我们对比基于CHA的分析方法和指针分析的分析方法。首先，回想一下CHA的构造过程。在这个程序中对`get（）`的调用，在CHA分析下，应该调用哪几个方法？
+接下来我们对比基于CHA的分析方法和指针分析的分析方法。首先，回想一下CHA的构造过程。
+在这个程序中对`get（）`的调用，在CHA分析下，应该调用哪几个方法？
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956183.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956183.png" style="zoom:50%;" />
 
 ### 使用CHA分析
 
@@ -40,13 +41,15 @@
 程序中保存一个地址的东西都可以视为指针（Pointer/Reference）。
 
 * Regarded as a may-analysis
-  * Computes an over-approximation of the set of objects that a pointer can point to, i.e., we ask “a pointer may point to which objects?”
+  * Computes an over-approximation of the set of objects that a pointer can point to, 
+    i.e., we ask “a pointer may point to which objects?”
 
-什么是指针分析呢？举个例子（省略中间过程）：
+什么是指针分析呢？
+"Which objects a pointer can point to?" 
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956209.png)
 
-### 区分指针分析与别名分析
+### 区分 指针分析 与 别名分析
 
 Pointer Analysis and Alias Analysis are 2 closely related but different concepts.
 
@@ -69,18 +72,16 @@ y = new Y();
 
 ### 指针分析有多重要？
 
-> 业界大佬们说它很重要。
+> 业界大佬们说它很重要:dog: 
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956793.png)
 
 ## Key Factors of Pointer Analysis
 
-此处有战术喝水。（现场梗）
-
 * Pointer analysis is a complex system
 * Multiple factors affect the precision and efficiency of the system
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956835.png)
+![image-20231104124502775](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311041245820.png)
 
 ### Heap Abstraction
 
@@ -92,7 +93,7 @@ for (…) {
 }
 ```
 
-解决方法也很简单，学校里同学太多了就分成班级来管理，我们也可以对堆上的对象进行抽象：
+解决方法也很简单，学校里同学太多了就分成班级来管理，我们也可以对堆上的对象进行抽象(finite abstract objects)：
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956855.png)
 
@@ -110,11 +111,13 @@ for (…) {
 
 首先我们需要了解什么是（被调用方法的）**调用上下文（calling contexts）**。调用上下文记录的是函数调用前后相关变量的值。例如，参数和返回值是上下文的一部分。
 
-如果将上下文做区分（进行额外的标记，如记录下图中p指向的目标），对参数不同时的调用做不同的分析，则称为**上下文敏感分析**。
+![image-20231104122847300](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311041228476.png)
+
+如果将上下文做区分（进行额外的标记，如记录下图中p指向的目标），对参数不同时的调用做不同的分析，则称为**上下文敏感分析(Context Sensitivity)**。
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956919.png)
 
-反之，如果不区分上下文，则称为**上下文不敏感分析**。由于忽略了一部分信息，可能会损失分析的精度。
+反之，如果不区分上下文，则称为**上下文不敏感分析(Context Insensitivity)**。由于忽略了一部分信息，可能会损失分析的精度。
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956399.png)
 
@@ -122,9 +125,12 @@ for (…) {
 
 ### Flow Sensitivity
 
->  流敏感分析重视语句执行的顺序，而流不敏感分析则恰恰相反。前者的精度更高，但优势不是特别大；后者的开销则远远小于前者。
+>  流敏感分析重视语句执行的顺序，而流不敏感分析则恰恰相反。
+>  前者的精度更高，但优势不是特别大；后者的开销则远远小于前者。
 
-之前课程中的所有数据流分析技术都是流敏感的。接下来我们考虑这样一段代码。_前排提示：复习的时候可以把图中箭头右侧挡住自己写一遍。_
+![image-20231104124413741](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311041244774.png)
+
+之前课程中的所有数据流分析技术都是流敏感的。
 
 ```cpp
 c = new C();
@@ -145,9 +151,14 @@ c.f = "y";
 
 可以分析整个程序，也可以按需分析（即只分析必要的部分）。
 
+![image-20231104124441616](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311041244653.png)
+
+
+
 ## Concerned Statements
 
-在指针分析中，我们只关注会影响到指针的语句（pointer-affecting statements）。而对于if/switch/loop/break/continue等等语句则可以直接忽略。
+在指针分析中，我们只关注会影响到指针的语句（pointer-affecting statements）。
+对于if/switch/loop/break/continue等等语句则可以直接忽略。
 
 ### 关注的指针类型
 
@@ -160,7 +171,7 @@ Java中的Pointers有以下几类：
 * **Instance field: x.f**
   * \(pointed by x\) with a field f
 * Array element: array\[i\]
-  * 涉及数组的分析中，我们**忽略下标**，代之以一个域（a single field）。例如，在下图中我们用arr表示。
+  * 涉及数组的分析中，我们**忽略下标(ignore indexes)**，代之以一个域（a single field）。例如，在下图中我们用arr表示。
 * 原因之一：数组下标是变量时难以计算具体值
   * 在之后介绍的算法中，**可作为Instance field处理**
 
@@ -170,21 +181,17 @@ Java中的Pointers有以下几类：
 
 具体来说，我们关注五种基本类型的语句：
 
-```cpp
+```java
 // New
 x = new T()
-
 // Assign
 x = y
-
 // Store
 x.f = y
-
 // Load
 y = x.f
-
 // Call
-r = x.k(a, …)
+r = x.k(a, …) // we focus on Virtual call(hardest)
 ```
 
 复杂的Store和Load指令可以解构成简单的，所以我们可以只考虑对上述五种基本类型语句的分析：

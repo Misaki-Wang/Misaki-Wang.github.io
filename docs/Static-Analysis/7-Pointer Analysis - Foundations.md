@@ -1,19 +1,15 @@
-# 指针分析理论（上）
-
-接下来两篇文章将主要介绍以下四点内容。前三点对应线下课程第九课，最后一点对应第十课。
+# Pointer Analysis - Foundations
 
 1. Pointer Analysis: Rules
 2. How to Implement Pointer Analysis
 3. Pointer Analysis: Algorithms
 4. Pointer Analysis with Method Calls
 
-我们先关注前三点，暂时不理会函数调用。
-
 ## Notations
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956714.png)
 
-首先介绍常用数学符号，不会的同学可以复习一下离散数学。
+首先介绍常用数学符号，不会的同学可以复习一下离散数学
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956718.png)
 
@@ -31,8 +27,6 @@ if(...){
 
 ## Pointer Analysis: Rules
 
-_前排提示：与《数理逻辑》/《形式化语义》梦幻联动。没学过的同学也不要着急。_
-
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956721.png)
 
 主要解释Rule一列中的内容。**横线上的内容是前提\(Premises\)，横线下的内容是结论\(Conclusion\)。**
@@ -43,23 +37,21 @@ _前排提示：与《数理逻辑》/《形式化语义》梦幻联动。没学
 
 对于Assign语句，我们将x指向y指向的对象。
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956723.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956723.png" style="zoom:28%;" />
 
 对于Store和Load亦然。
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956738.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956738.png" style="zoom: 67%;" />
 
-![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956083.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956083.png" style="zoom:67%;" />
 
 ### Summary
 
-最后用一图总结。**第一条规则添加指向，而后三条规则传递指向关系。**
+最后用一图总结。**第一条规则添加指向，而后三条规则传递指向关系。** 
 
 ![](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011956100.png)
 
 ## How to Implement Pointer Analysis
-
-_别处的资料都没有全家桶，只介绍某些特殊情况下的分析算法。在这里你能喜提一个完整的指针分析算法全家桶。_
 
 本质上来说，指针分析是在指针间**传递**指向关系。
 
