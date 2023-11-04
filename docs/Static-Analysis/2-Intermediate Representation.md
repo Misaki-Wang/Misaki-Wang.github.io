@@ -7,7 +7,7 @@
 * 词法分析器（Scanner），结合正则表达式，通过词法分析（Lexical Analysis）将 source code 翻译为 token。
 * 语法分析器（Parser），结合上下文无关文法（Context-Free Grammar），通过语法分析（Syntax Analysis），将 token 解析为抽象语法树（Abstract Syntax Tree, AST）
 * 语义分析器（Type Checker），结合属性文法（Attribute Grammar），通过语义分析（Semantic Analysis），将 AST 解析为 decorated AST
-* Translator，将 decorated AST 翻译为生成三地址码这样的中间表示形式（Intermediate Representation, IR），并**基于 IR 做静态分析**（例如代码优化这样的工作）。
+* Translator，将 decorated AST 翻译为生成三地址码这样的中间表示形式（Intermediate Representation, IR），并 **基于 IR 做静态分析** （例如代码优化这样的工作）。
 * Code Generator，将 IR 转换为机器代码。
 
 有人要问了，为什么不直接拿 source code 做静态分析？这是因为我们得先确保这是一份合格的代码，然后再进行分析。分析代码合不合格，这是 trivial 的事情，由前面的各种分析器去做就行了，我们要做的是 non-trivial 的事情。
@@ -66,7 +66,7 @@
 
 这一部分也是可选内容，只需要稍加了解。
 
-所谓静态单赋值（SSA），就是让每次对变量x赋值都重新使用一个新的变量xi，并在后续使用中选择最新的变量。
+所谓静态单赋值（SSA），就是让每次对变量x赋值都重新使用一个新的变量$x_i$，并在后续使用中选择最新的变量。
 
 ```
 3AC        | SSA
@@ -82,20 +82,23 @@ q = p + q    q2 = p2 + q1
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011938418.png" alt="image-20210909192230838" style="zoom:80%;" />
 
-这里解决的办法就是使用一个合并操作符$\phi$（phi-function），根据控制流的信息确定使用哪个变量。
+这里解决的办法就是使用一个合并操作符 $\phi$,（phi-function），根据控制流的信息确定使用哪个变量。
 
 
 
-为什么要用 SSA 呢？
+**为什么要用 SSA 呢？**
 
-* 控制流信息间接地集成到了独特变量名中
-  * 如果有些对控制流不敏感的简化分析，就可以借助于 SSA 
-* 定义与使用是显式的
-  * 更有效率的数据存取与传播，有些优化在基于 SSA 时效果更好（例如条件常量传播，全局变量编号等）
+- 控制流信息间接地集成到了独特变量名中
+  如果有些对控制流不敏感的简化分析，就可以借助于 SSA 
 
-为什么不用 SSA 呢？
+- 定义与使用是显式的
+  更有效率的数据存取与传播，有些优化在基于 SSA 时效果更好（例如条件常量传播，全局变量编号等）
 
-* SSA 会引入过多的变量和 phi 函数
+
+
+**为什么不用 SSA 呢？**
+
+* SSA 会引入过多的变量和$\phi$函数
 * 在转换成机器代码时会引入低效率的问题
 
 ## Basic Blocks & Control Flow Graphs
