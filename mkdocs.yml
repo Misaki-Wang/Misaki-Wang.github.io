@@ -87,7 +87,7 @@ markdown_extensions:
   - def_list # Definition Lists
   - footnotes # Footnotes
   - md_in_html # Markdown in HTML¶
-  - markdown.markdown(some_text, extensions=['sane_lists'])
+  # - markdown.markdown(some_text, extensions=['sane_lists'])
   - toc:
       permalink: true
   # MathJax 
