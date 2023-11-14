@@ -1,8 +1,8 @@
-# Security
+## Security
 
 >   前面的课程相当tough。~~今天来讲些简单有趣的内容。~~
 
-# Introduction
+## Introduction
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011957637.png" style="zoom:50%;" />
 
@@ -24,9 +24,9 @@
 3. Explicit Flows and Covert Channels
 4. Taint Analysis
 
-# Information Flow Security
+## Information Flow Security
 
-## Access Control vs. Information Flow Security
+### Access Control vs. Information Flow Security
 
 >   "A practical system needs both access and flow control to satisfy all security requirements."
 >
@@ -35,13 +35,13 @@
 -   Access Control concerns how information is **accessed**.
 -   Information Flow Security concerns how information is **propagated**.
 
-## Information Flow
+### Information Flow
 
  If the information in variable x is transferred to variable y, then there is information flow x->y.
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011957653.png" alt="是不是有点儿指针分析内味儿了？" style="zoom:50%;" />
 
-### Information Flow Security
+#### Information Flow Security
 
 Connects information flow to security
 
@@ -52,7 +52,7 @@ Connects information flow to security
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011957649.png" alt="两个实例" style="zoom:50%;" />
 
-### Information Flow Policy
+#### Information Flow Policy
 
 一种常用的策略是Noninterference policy——高秘密等级的信息不应该影响到低秘密等级的信息。这能够保证攻击者无法通过观测低秘密等级的信息推测出和高秘密等级的信息。
 
@@ -60,7 +60,7 @@ Connects information flow to security
 
 关于最后一个行：只要攻击者知道了低秘密等级的x和y的值，就能反推出高秘密等级的z的值。因此这样的赋值不应该被允许。
 
-# Confidentiality and Integrity
+## Confidentiality and Integrity
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011957675.png" alt="比较" style="zoom:50%;" />
 
@@ -80,29 +80,29 @@ More on Integrity-a Board Definition(在信息流安全以外的语境中，Inte
 
 
 
-# Explicit Flows and Covert Channels
+## Explicit Flows and Covert Channels
 
 信息在程序中流动的两种方式——显式流和隐藏信道。
 
 ### Explicit Flows
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217191513356.png" alt="Explicit Flow" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051253.png" alt="Explicit Flow" style="zoom: 33%;" />
 
 ### Covert Channels
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217191608133.png" alt="Leak under implicit flow" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141050326.png" alt="Leak under implicit flow" style="zoom:50%;" />
 
 -   This kind of information flow is called implicit flow, which **may arise when the control flow is affected by secret information**.
 -   Any differences in side effects under **secret control** encode information about the control, which may be **publicly observable** and leak secret information.
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217191941119.png" alt="More Leak Examples" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051710.png" alt="More Leak Examples" style="zoom:50%;" />
 
 -   Mechanisms for signalling information through a computing system are known as **channels**.
     -   信道传输信息。
 -   Channels that exploit a mechanism whose primary purpose is not information transfer are called **covert channels**.
     -   原本的目的不是传递信息，却传递了信息的信道，我们就称之为隐藏信道。
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217193802763.png" alt="Covert Channels Examples" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051866.png" alt="Covert Channels Examples" style="zoom:50%;" />
 
 More:
 
@@ -116,13 +116,13 @@ More:
 
 不过，还是有好消息的：
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217194544398.png" alt="两种类型缺陷所泄漏的信息量不一致" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051836.png" alt="两种类型缺陷所泄漏的信息量不一致" style="zoom:50%;" />
 
 
 
-# Taint Analysis
+## Taint Analysis
 
-## Definition
+### Definition
 
 类比于同位素标记，我们通过给关心的数据打上标记，而把数据分为tainted/untainted data.
 
@@ -131,11 +131,11 @@ More:
 -   **<u>Sources of tainted data</u> is called sources.** In practice, tainted data usually come from the return values of some methods (regarded as sources).
 -   **Taint analysis tracks how tainted data flow through the program and observes if they can flow to <u>locations of interest</u> (called sinks).** In practice, sinks are usually some sensitive methods.
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217195126758.png" alt="两个例子" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051486.png" alt="两个例子" style="zoom:50%;" />
 
 ---
 
-## Taint & Pointer Analysis, Together
+### Taint & Pointer Analysis, Together
 
 >   等等等等，我们不是来学静态程序分析的吗？
 
@@ -147,13 +147,13 @@ More:
 -   Treats sources as **allocation sites** (of tainted data)
 -   Leverages pointer analysis to **propagate** tainted data
 
-### Domains & Notations
+#### Domains & Notations
 
-<img src="E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217195814591.png" alt="还是熟悉的味道" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051404.png" alt="还是熟悉的味道" style="zoom:50%;" />
 
 我们在Domain中添加Tainted data。和之前一样，用下标的i和j标识data产生的位置。
 
-### Inputs & Outputs
+#### Inputs & Outputs
 
 **Inputs**
 
@@ -166,13 +166,13 @@ More:
 -   **𝑇𝑎𝑖𝑛𝑡𝐹𝑙𝑜𝑤𝑠**: a set of pairs of tainted data and sink methods
     -   E.g., $$ (𝑡_𝑖, 𝑚)\in$$ 𝑇𝑎𝑖𝑛𝑡𝐹𝑙𝑜𝑤𝑠 denotes that the tainted data from call site 𝑖 (which calls a source method) may flow to sink method 𝑚
 
-### Rules
+#### Rules
 
-![Rules for Propagation](E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217200616889.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051229.png" alt="Rules for Propagation" style="zoom: 33%;" />
 
-![New Rules for Call](E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217200536542.png)
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051829.png" alt="New Rules for Call" style="zoom:45%;" />
 
-### Example
+#### Example
 
 假设我们这样定义Source为`getPassword()`方法，Sink为`log(String)`方法。试着分析以下代码，看看输出指向关系和TaintFlows集合应该是什么？
 
@@ -189,6 +189,7 @@ void main() {
     // 这个log会写下什么惊人的东西吗？
 }
 String getPassword() {
+    ... 
 	return new String(…);
 }
 class A {
@@ -196,9 +197,9 @@ class A {
 }
 ```
 
-~~过程在咕咕咕的视频讲解中。~~
 
-![分析结果](E:/git_lib/Static-Program-Analysis-Book/ch4/04-01-security.assets/image-20201217201336388.png)
+
+![分析结果](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311141051218.png)
 
 ## Key Points
 
