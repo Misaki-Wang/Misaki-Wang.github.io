@@ -32,7 +32,7 @@ Datalog是一种声明式（Declarative）的编程语言。
 -   没有函数
 -   不是图灵完备的
 
-## Data
+## Facts
 
 ### Predicates
 
@@ -55,7 +55,7 @@ Atoms可以分成两类
 -   Arithmetic Atoms
     -   如`age >= 18`
 
-## Logic
+## Rule
 
 ### Datalog Rules & Logic And
 
@@ -100,7 +100,7 @@ Datalog使用规则来进行推导(inference)，其定义如下：
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011957270.png" style="zoom:50%;" />
 
-## Rule Satety
+## Rule Safety
 
 讲到这里，停下来思考一下，这两条Rules看起来有什么问题吗？
 
@@ -133,8 +133,8 @@ Datalog使用规则来进行推导(inference)，其定义如下：
 
 Datalog的两大重要特性：
 
--   单调性。因为事实（facts）不会被删除的。
--   必然终止。
+-   Monotonicity: 因为事实（facts）不会被删除的。
+-   Termination: 
     -   事实的数量是**单调**的。
     -   由Rule Safety，所能得到的IDB的大小也是**有限**的。
 
@@ -150,7 +150,7 @@ Datalog的两大重要特性：
 
 和之前一样，我们把Call放到最后处理。
 
-## Datalog Model-EDB&IDB
+## Datalog Model-EDB & IDB
 
 我们首先需要对前四条语句建模。输入的EDB代表了4个存储相应类型语句的table，输出为Variable和Field的指向关系。
 
@@ -252,14 +252,22 @@ e = d.f;
 
 # Key Points
 
--   Pros
-    -   **Succinct** and **readable**
-    -   **Easy** to implement
-    -   **Benefit from off-the-shelf optimized Datalog engines**
--   Cons
-    -   **Restricted expressiveness**, i.e., it is impossible or inconvenient to express some logics
-    -   Cannot fully control **performance**
--   Overall Review
-    -   **Datalog** language
-    -   How to implement **pointer analysis via Datalog**
-    -   How to implement **taint analysis via Datalog**
+DataLog: 
+
+- Pros
+
+  -   **Succinct** and **readable**
+  -   **Easy** to implement
+  -   **Benefit from off-the-shelf optimized Datalog engines**
+
+- Cons
+  -   **Restricted expressiveness**, i.e., it is impossible or inconvenient to express some logics
+  -   Cannot fully control **performance**
+
+  
+
+  Overall Review
+
+  -   **Datalog** language
+  -   How to implement **pointer analysis via Datalog**
+  -   How to implement **taint analysis via Datalog**

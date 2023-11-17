@@ -1,6 +1,6 @@
 # CFL-Reachability and IFDS
 
-<u>前排提醒：如果你已经忘记了**数据流分析理论基础**部分的内容，请务必去复习一下再读本文。</u>具体来说，你应该能够回忆起:
+前排提醒：如果你已经忘记了**数据流分析理论基础**部分的内容，请务必去复习一下再读本文具体来说，你应该能够回忆起:
 
 -   Meet/Join
 -   Transfer function
@@ -8,24 +8,14 @@
 
 ---
 
-标题看起来有点吓人，不过我们可以简单地描述一下即将要讲述的内容：
 
 >   IFDS是一种分析框架，在这种框架下，分析的数据流是满足CFL-Reachability这一性质的。
 
-本课主要内容如下：
-
-1.  Feasible and Realizable Paths
-2.  CFL-Reachability
-3.  Overview of IFDS
-4.  Supergraph and Flow Functions
-5.  Exploded Supergraph and Tabulation Algorithm
-6.  Understanding the Distributivity of IFDS
-
-# Feasible and Realizable Paths
+## Feasible and Realizable Paths
 
 实际分析时，JDK中一个方法能产生的CFG是非常复杂的。不过，并非所有的路径都会被执行到，一个很自然的想法是，只分析可能被执行的路径。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958872.png" style="zoom:50%;" />
+![image-20231117084253121](https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311170843226.png)
 
 虽然并非所有的路径都会被执行到。**可是`判断一条路径是否feasible`本身是不可判定(undecidable)的。**
 
@@ -47,8 +37,7 @@
 
 >   The paths in which “returns” are matched with corresponding “calls”.
 
--   Realizable paths may not be executable, but unrealizable paths
-    must not be executable.
+-   Realizable paths may not be executable, but unrealizable paths must not be executable.
     -   可以把executable/feasible path看作realizable path的真子集
 -   Our goal is to **recognize realizable paths** so that we could avoid polluting analysis results along unrealizable paths.
     -   这个问题和括号匹配问题本质上是一样的。
@@ -57,11 +46,11 @@
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958907.png" style="zoom:50%;" />
 
-# CFL-Reachability
+## CFL-Reachability
 
 >   A path is considered to connect two nodes A and B, or **B is reachable from A**, only if **the concatenation of the labels on the edges of the path is a word in a specified context-free language.**
 
-这里默认读者学习过上下文无关语言(context-free language)相关的知识（编译原理和计算理论几乎是每个学校计算机系的必修课）。具体来说，你应该知道：
+这里默认读者学习过上下文无关语言(context-free language)相关的知识。具体来说，你应该知道：
 
 -   终结符(nonterminal)
 -   非终结符(terminal)
@@ -69,7 +58,7 @@
 -   （最左/最右）推导
 -   正则文法/上下文无关文法和图灵机之间计算表达能力的差异
 
-我们进一步定义一个语言`L(realizable)`，右侧黄色框中的4个字符串都是语言L的一部分。
+我们进一步定义一个语言`L(realizable)`，右侧黄色框中的4个字符串都是语言L的一部分
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958935.png" alt="上下文无关文法规则" style="zoom:50%;" />
 
@@ -83,13 +72,16 @@
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958862.png" style="zoom:50%;" />
 
-# Overview of IFDS
+## Overview of IFDS
 
 >   “Precise Interprocedural Dataflow Analysis via Graph Reachability”
 >
->   --Thomas Reps, Susan Horwitz, and Mooly Sagiv, POPL’95
+>   ​																			--Thomas Reps, Susan Horwitz, and Mooly Sagiv, POPL’95
 
-所谓IFDS，其实是四个单词(Interprocedural, Finite, Distributive, Subset)的缩写。如果一个问题满足这四个性质，则可以用相应的框架来解决问题。
+IFDS is for interprocedural data flow analysis with **distributive** flow functions over **finite** domains.
+
+所谓IFDS，其实是四个单词(Interprocedural, Finite, Distributive, Subset)的缩写。
+如果一个问题满足这四个性质，则可以用相应的框架来解决问题。
 
 复习两个旧概念，介绍一个新概念：
 
@@ -99,7 +91,7 @@
 
   - 可以理解按照顺序，先后应用一条path上edge/node的transfer function:
 
-  - <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958883.png" style="zoom:50%;" />
+    <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958883.png" style="zoom:50%;" />
 
 - `Meet-Over-All-Paths(MOP)`
 
@@ -119,19 +111,20 @@
 
 ---
 
-接下来要讲一些比较难懂的内容~~战术喝水~~。
-
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958932.png" style="zoom:50%;" />
 
-# Supergraph and Flow Functions
+## Supergraph and Flow Functions
 
-## Supergraph
+### Supergraph
 
-可以理解成IFDS分析体系下的ICFG(Interprocedural Control Flow Graph，即过程间控制流图)。这里只需要了解一下其中的三种edge（图中的G*即指supergraph）：
+In IFDS, a program is represented by $G^* = (N^*,E^*)$ called a supergraph
+
+可以理解成IFDS分析体系下的ICFG(Interprocedural Control Flow Graph，即过程间控制流图)。
+这里只需要了解一下其中的三种edge（图中的G*即指supergraph）：
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958483.png" style="zoom:50%;" />
 
-## Design Flow Functions
+### Design Flow Functions
 
 定义`Possibly-uninitialized variables`:
 
@@ -139,7 +132,7 @@
 
 我们接下来的例子求的就是这样的变量。
 
-### lambda expression
+#### lambda expression
 
 为了后续叙述方便，这里简单地介绍一下lambda表达式。
 
@@ -151,7 +144,7 @@
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958664.png" style="zoom:50%;" />
 
-### Example of Flow Functions
+#### Example of Flow Functions
 
 在进入main后，全局变量g和局部变量x一定是没有初始化的。
 
@@ -177,11 +170,11 @@
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958760.png" style="zoom:50%;" />
 
-# Exploded Supergraph and Tabulation Algorithm
+## Exploded Supergraph and Tabulation Algorithm
 
-## Build Exploded Supergraph
+### Build Exploded Supergraph
 
-Flow Function对应着二元关系。
+Flow Function对应着二元关系
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958794.png" style="zoom:50%;" />
 
@@ -194,37 +187,35 @@ Flow Function对应着二元关系。
 
 你是否也觉得上面例子中0->0这条边挺奇怪的？它的存在是被刻意设计的。因为IFDS主要依赖于可达性(reachability)做分析。如果没有这样的边，在IFDS中没有办法判断在n4这个点处，a是否满足某种性质。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958821.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958821.png" style="zoom: 33%;" />
 
 而加上这条总是存在的Glue Edge之后，就可以满足IFDS分析的要求。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958856.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958856.png" style="zoom: 33%;" />
 
-回到我们之前的例子，用新的二元关系的视角去**手动分析**，将会是这样（视频之后会做的会做的~~吧~~，咕！）：
+回到我们之前的例子，用新的二元关系的视角去**手动分析**，将会是这样：
 
 标黄部分比较重要，它的意思是：如果a或g一开始没有被初始化，则a都没有被初始化。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958893.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958893.png" style="zoom: 33%;" />
 
 最后构造出来的Exploded Supergraph是这样的：
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958886.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958886.png" style="zoom: 33%;" />
 
 怎样使用这样的分析结果呢？我们来考虑一个问题，全局变量g在程序片段运行结束时，是否可能没有被初始化？
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958906.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958906.png" style="zoom: 33%;" />
 
 结果是，g在这里可能没有被初始化。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958928.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958928.png" style="zoom: 33%;" />
 
 而之前提到的realizable path在这里也能提供更高的精度。
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958951.png" style="zoom:50%;" />
+<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958951.png" style="zoom: 50%;" /><img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958972.png" style="zoom: 48%;" />
 
-<img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958972.png" style="zoom:50%;" />
-
-## Tabulation Algorithm
+### Tabulation Algorithm
 
 刚才我们是手动分析的，而用Tabulation算法，可以在$$ O(ED^3)$$复杂度（E为Edge的数量，D为Data facts的数量，如在下面的例子中，D为3）下得到MRP的结果：
 
@@ -234,7 +225,7 @@ Flow Function对应着二元关系。
 
 <img src="https://picgo-wbyz.oss-cn-nanjing.aliyuncs.com/202311011958092.png" alt="Core Working Mechanism" style="zoom:50%;" />
 
-# Understanding the Distributivity of IFDS
+## Understanding the Distributivity of IFDS
 
 这里的Distributivity是指Flow Function的性质，即满足：
 
