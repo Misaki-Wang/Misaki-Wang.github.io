@@ -1,0 +1,1554 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Misaki">
+      
+      
+        <link rel="canonical" href="https://misaki-wang.github.io/Computer-Science/Missing-semester/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../git/">
+      
+      
+      <link rel="icon" href="../../assets/images/misaki-logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.9">
+    
+    
+      
+        <title>Missing Semester - Chronicles of Misaki's Dream</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.78cf6014.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-missing-semester-of-your-cs-eduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Chronicles of Misaki&#39;s Dream" class="md-header__button md-logo" aria-label="Chronicles of Misaki's Dream" data-md-component="logo">
+      
+  <img src="../../assets/images/misaki-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Chronicles of Misaki's Dream
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Missing Semester
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.5 2c-1.79 1.15-3 3.18-3 5.5s1.21 4.35 3.03 5.5C4.46 13 2 10.54 2 7.5A5.5 5.5 0 0 1 7.5 2m11.57 1.5 1.43 1.43L4.93 20.5 3.5 19.07 19.07 3.5m-6.18 2.43L11.41 5 9.97 6l.42-1.7L9 3.24l1.75-.12.58-1.65L12 3.1l1.73.03-1.35 1.13.51 1.67m-3.3 3.61-1.16-.73-1.12.78.34-1.32-1.09-.83 1.36-.09.45-1.29.51 1.27 1.36.03-1.05.87.4 1.31M19 13.5a5.5 5.5 0 0 1-5.5 5.5c-1.22 0-2.35-.4-3.26-1.07l7.69-7.69c.67.91 1.07 2.04 1.07 3.26m-4.4 6.58 2.77-1.15-.24 3.35-2.53-2.2m4.33-2.7 1.15-2.77 2.2 2.54-3.35.23m1.15-4.96-1.14-2.78 3.34.24-2.2 2.54M9.63 18.93l2.77 1.15-2.53 2.19-.24-3.34Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/misaki-Wang/misaki-Wang.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Misaki's Blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Static-Analysis/1-intro/" class="md-tabs__link">
+          
+  
+    
+  
+  Static Analysis
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Chronicles of Misaki&#39;s Dream" class="md-nav__button md-logo" aria-label="Chronicles of Misaki's Dream" data-md-component="logo">
+      
+  <img src="../../assets/images/misaki-logo.png" alt="logo">
+
+    </a>
+    Chronicles of Misaki's Dream
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/misaki-Wang/misaki-Wang.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Misaki's Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Missing Semester
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Missing Semester
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview-the-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course overview + the shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-tools-and-scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Tools and Scripting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Tools and Scripting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      shell script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      shell Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vimeditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim(Editor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vim(Editor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-wrangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Wrangling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Job Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-multiplexers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Multiplexers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dotfiles(配置文件)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Machines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q &amp; A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readings
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Static Analysis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Static Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/2-Intermediate%20Representation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intermediate Representation(IR)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/3-Data%20Flow%20Analysis%20-%20Applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Flow Analysis-Applications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/4-Data%20Flow%20Analysis%20-%20Foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Flow Analysis-Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/5-Interprocedural%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interprocedural Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/6-Pointer%20Analysis%20-%20intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pointer Analysis-Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/7-Pointer%20Analysis%20-%20Foundations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pointer Analysis-Foundations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/8-Pointer%20Analysis%20-%20Context%20Sensitivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pointer Analysis-Context Sensitivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/9-Static%20Analysis%20for%20Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Static Analysis for Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/10-Datalog-Based%20Program%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datalog-Based Program Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/11-CFL-Reachability%20and%20IFDS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CFL-Reachability and IFDS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Static-Analysis/12-Soundness%20and%20Soundiness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Soundness and Soundiness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview-the-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course overview + the shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-tools-and-scripting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Tools and Scripting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shell Tools and Scripting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      shell script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      shell Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vimeditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vim(Editor)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vim(Editor)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-wrangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Wrangling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Job Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-multiplexers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminal Multiplexers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aliases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dotfiles(配置文件)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Machines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#q-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q &amp; A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Readings
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/misaki-Wang/misaki-Wang.github.io/edit/master/docs/Computer-Science/Missing-semester.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/misaki-Wang/misaki-Wang.github.io/raw/master/docs/Computer-Science/Missing-semester.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="the-missing-semester-of-your-cs-eduction">The Missing Semester of Your CS Eduction<a class="headerlink" href="#the-missing-semester-of-your-cs-eduction" title="Permanent link">&para;</a></h1>
+<p><a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education (mit.edu)</a></p>
+<h2 id="course-overview-the-shell">Course overview + the shell<a class="headerlink" href="#course-overview-the-shell" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.gnu.org/software/bash/manual/html_node/Quoting.html">Quoting (Bash Reference Manual) (gnu.org)</a></p>
+<ul>
+<li>three quoting mechanisms: <code>\</code> <code>'</code> <code>"</code></li>
+<li>Escape Character <code>\</code>:<ul>
+<li>Used to escape the special meaning of individual characters.</li>
+<li>It allows a mix of escaping and non-escaping within a quoted string.</li>
+<li>Commonly used for escaping special characters or creating custom escape sequences.
+  <a href="https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-Quoting.html">ANSI-C Quoting (Bash Reference Manual) (gnu.org)</a></li>
+</ul>
+</li>
+<li>Single Quotes <code>'</code>':<ul>
+<li>Treats everything enclosed as a literal string.</li>
+<li>No variable expansion or command substitution occurs.</li>
+<li>Ideal for preserving text exactly as it is, without any interpretation.</li>
+</ul>
+</li>
+<li>Double Quotes <code>"</code>:<ul>
+<li>Allow variable expansion and command substitution.</li>
+<li>Interpret and expand variables and commands within the quotes.</li>
+<li>Useful when you want to include variable values or execute commands within the string.
+  <a href="https://www.gnu.org/software/bash/manual/html_node/Locale-Translation.html">Locale Translation (Bash Reference Manual) (gnu.org)</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Shebang (Unix) - Wikipedia</a></p>
+<ul>
+<li>a <strong>shebang</strong> is the character sequence consisting of the characters <a href="https://en.wikipedia.org/wiki/Number_sign">number sign</a> and <a href="https://en.wikipedia.org/wiki/Exclamation_mark">exclamation mark</a> (#!) at the beginning of a <a href="https://en.wikipedia.org/wiki/Script_(computing)">script</a>.</li>
+<li><code>interpreter [optional-arg]</code></li>
+</ul>
+<h2 id="shell-tools-and-scripting">Shell Tools and Scripting<a class="headerlink" href="#shell-tools-and-scripting" title="Permanent link">&para;</a></h2>
+<p><a href="https://tldp.org/LDP/abs/html/special-chars.html">Special Characters (tldp.org)</a></p>
+<h3 id="shell-script">shell script<a class="headerlink" href="#shell-script" title="Permanent link">&para;</a></h3>
+<p>Parameters:</p>
+<ul>
+<li><code>$0</code> - 脚本名</li>
+<li><code>$1</code> 到 <code>$9</code> - 脚本的参数。 <code>$1</code> 是第一个参数，依此类推。</li>
+<li><code>$@</code> - 所有参数</li>
+<li><code>$#</code> - 参数个数</li>
+<li><code>$?</code> - 前一个命令的返回值</li>
+<li><code>$$</code> - 当前脚本的进程识别码</li>
+<li><code>!!</code> - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 <code>sudo !!</code>再尝试一次。</li>
+<li><code>$_</code> - 上一条命令的最后一个参数。如果你正在使用的是交互式 shell，你可以通过按下 <code>Esc</code> 之后键入 . 来获取这个值。</li>
+</ul>
+<p>shell的 <em>通配</em>（<em>globbing</em>）:</p>
+<ul>
+<li>通配符 - 当你想要利用通配符进行匹配时，你可以分别使用 <code>?</code> 和 <code>*</code> 来匹配一个或任意个字符。例如，对于文件 <code>foo</code>, <code>foo1</code>, <code>foo2</code>, <code>foo10</code> 和 <code>bar</code>, <code>rm foo?</code>这条命令会删除 <code>foo1</code> 和 <code>foo2</code> ，而 <code>rm foo*</code> 则会删除除了 <code>bar</code>之外的所有文件。</li>
+<li>花括号 <code>{}</code> - 当你有一系列的指令，其中包含一段公共子串时，可以用花括号来自动展开这些命令。这在批量移动或转换文件时非常方便。</li>
+</ul>
+<p><a href="https://github.com/koalaman/shellcheck">github.com/koalaman/shellcheck</a></p>
+<h3 id="shell-tools">shell Tools<a class="headerlink" href="#shell-tools" title="Permanent link">&para;</a></h3>
+<p>Find Files: <code>find</code> <code>fd</code> <code>lcoate</code></p>
+<p>Find Code: <mark><code>grep</code></mark>  <code>rg</code> <code>ack</code> <code>ag</code></p>
+<p>Find Shell command: <code>history</code> <code>fzf</code></p>
+<p><a href="https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings#ctrl-r">fzf Wiki (github.com)</a></p>
+<p>File direction: <code>fasd</code> <code>autojump</code></p>
+<p><a href="https://github.com/clvv/fasd">fasd</a>  <a href="https://github.com/wting/autojump">autojump</a></p>
+<h2 id="vimeditor">Vim(Editor)<a class="headerlink" href="#vimeditor" title="Permanent link">&para;</a></h2>
+<h3 id="model">Model<a class="headerlink" href="#model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Normal</strong>: for moving around a file and making edits</li>
+<li><strong>Insert</strong>: for inserting text</li>
+<li><strong>Replace</strong>: for replacing text</li>
+<li><strong>Visual</strong> (plain, line, or block): for selecting blocks of text</li>
+<li><strong>Command-line</strong>: for running a command</li>
+</ul>
+<p>.vimrc</p>
+<p><a href="https://github.com/amix/vimrc">amix/vimrc: The ultimate Vim configuration (vimrc) (github.com)</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>https://github.com/amix/vimrc.git<span class="w"> </span>~/.vim_runtime
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sh<span class="w"> </span>~/.vim_runtime/install_awesome_vimrc.sh
+</code></pre></div>
+<p>Practice</p>
+<p><a href="https://www.openvim.com/sandbox.html">Interactive Vim tutorial - sandbox (openvim.com)</a></p>
+<h2 id="data-wrangling">Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permanent link">&para;</a></h2>
+<p>Regular expression</p>
+<p><a href="https://regex101.com/">regex101: build, test, and debug regex</a></p>
+<p><a href="https://regexone.com/">RegexOne - Learn Regular Expressions - Lesson 1: An Introduction, and the ABCs</a></p>
+<p>awk xargs</p>
+<p>gnuplot ffmpeg</p>
+<h2 id="command-line-environment">Command-line Environment<a class="headerlink" href="#command-line-environment" title="Permanent link">&para;</a></h2>
+<h3 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Permanent link">&para;</a></h3>
+<p><code>man signal</code> <a href="https://www.man7.org/linux/man-pages/man7/signal.7.html">signal(7) - Linux manual page (man7.org)</a></p>
+<p>Killing a process: <code>ctrl-C</code>  kill -TERM <code>&lt;PID&gt;</code></p>
+<p>Pausing and backgrounding processes: <code>jobs</code> , <code>bg</code> and <code>fg</code> <code>nohup</code> <code>pgrep</code></p>
+<h3 id="terminal-multiplexers">Terminal Multiplexers<a class="headerlink" href="#terminal-multiplexers" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.man7.org/linux/man-pages/man1/tmux.1.html">tmux(1) - Linux manual page (man7.org)</a></p>
+<ul>
+<li>Sessions  - a session is an independent workspace with one or more windows</li>
+<li><code>tmux</code> starts a new session.</li>
+<li><code>tmux new -s NAME</code> starts it with that name.</li>
+<li><code>tmux ls</code> lists the current sessions</li>
+<li>Within <code>tmux</code> typing <code>&lt;C-b&gt; d</code> detaches the current session</li>
+<li><code>tmux a</code> attaches the last session. You can use <code>-t</code> flag to specify which</li>
+<li>Windows  - Equivalent to tabs in editors or browsers, they are visually separate parts of the same session</li>
+<li><code>&lt;C-b&gt; c</code> Creates a new window. To close it you can just terminate the shells doing <code>&lt;C-d&gt;</code></li>
+<li><code>&lt;C-b&gt; N</code> Go to the <em>N</em> th window. Note they are numbered</li>
+<li><code>&lt;C-b&gt; p</code> Goes to the previous window</li>
+<li><code>&lt;C-b&gt; n</code> Goes to the next window</li>
+<li><code>&lt;C-b&gt; ,</code> Rename the current window</li>
+<li><code>&lt;C-b&gt; w</code> List current windows</li>
+<li>Panes  - Like vim splits, panes let you have multiple shells in the same visual display.</li>
+<li><code>&lt;C-b&gt; "</code> Split the current pane horizontally</li>
+<li><code>&lt;C-b&gt; %</code> Split the current pane vertically</li>
+<li><code>&lt;C-b&gt; &lt;direction&gt;</code> Move to the pane in the specified <em>direction</em>. Direction here means arrow keys.</li>
+<li><code>&lt;C-b&gt; z</code> Toggle zoom for the current pane</li>
+<li><code>&lt;C-b&gt; [</code> Start scrollback. You can then press <code>&lt;space&gt;</code> to start a selection and <code>&lt;enter&gt;</code> to copy that selection.</li>
+<li><code>&lt;C-b&gt; &lt;space&gt;</code> Cycle through pane arrangements.</li>
+</ul>
+<p><a href="https://tmuxcheatsheet.com/">https://tmuxcheatsheet.com/</a></p>
+<p><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">A Quick and Easy Guide to tmux (hamvocke.com)</a></p>
+<p><a href="https://www.bilibili.com/video/BV1ML411h7tF/?spm_id_from=333.337.search-card.all.click&amp;vd_source=768baf220865b9cce87e8cb50c20fecc">终端神器tmux：多任务管理大师_哔哩哔哩_bilibili</a></p>
+<p><a href="http://linuxcommand.org/lc3_adv_termmux.php">Linux Command Line Adventure: Terminal Multiplexers</a></p>
+<h3 id="aliases">Aliases<a class="headerlink" href="#aliases" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">alias</span><span class="w"> </span><span class="nv">alias_name</span><span class="o">=</span><span class="s2">&quot;command_to_alias arg1 arg2&quot;</span>
+</code></pre></div>
+<h3 id="dotfiles">Dotfiles(配置文件)<a class="headerlink" href="#dotfiles" title="Permanent link">&para;</a></h3>
+<p>Examples:</p>
+<ul>
+<li><code>bash</code> - <code>~/.bashrc</code>, <code>~/.bash_profile</code></li>
+<li><code>git</code> - <code>~/.gitconfig</code></li>
+<li><code>vim</code> - <code>~/.vimrc</code> 和 <code>~/.vim</code> 目录</li>
+<li><code>ssh</code> - <code>~/.ssh/config</code></li>
+<li><code>tmux</code> - <code>~/.tmux.conf</code></li>
+</ul>
+<p><a href="https://github.com/search?o=desc&amp;q=dotfiles&amp;s=stars&amp;type=Repositories">Dotfiles Repository search results (github.com)</a></p>
+<p>Benefits:</p>
+<ul>
+<li><strong>Easy installation</strong></li>
+<li>
+<p><strong>Portability</strong>:</p>
+</li>
+<li>
+<p>using <code>if</code> to  apply machine specific customizations</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Linux&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="o">{</span>do_something<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Check before using shell-specific features</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SHELL</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;zsh&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="o">{</span>do_something<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># You can also make it machine-specific</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;myServer&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="o">{</span>do_something<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>include</code></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">[</span>include<span class="o">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>~/.gitconfig_local
+</code></pre></div>
+  - share some configurations in different programs: like <code>.alias</code> of bash and zsh</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Test if ~/.aliases exists and source it</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>~/.aliases<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.aliases
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">fi</span>
+</code></pre></div>
+- <strong>Synchronization</strong>
+- <strong>Change tracking</strong></p>
+</li>
+</ul>
+<h3 id="remote-machines">Remote Machines<a class="headerlink" href="#remote-machines" title="Permanent link">&para;</a></h3>
+<p>To <code>ssh</code> a server</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># the server can be URL or IP</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ssh<span class="w">  </span>usr@server
+</code></pre></div>
+<p>executing commands</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ssh<span class="w"> </span>usr@server<span class="w"> </span>commands
+</code></pre></div>
+<p>SSH keys <a href="https://www.man7.org/linux/man-pages/man1/ssh-keygen.1.html">ssh-keygen(1) - Linux manual page (man7.org)</a></p>
+<ul>
+<li>Key generation:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh-keygen<span class="w"> </span>-o<span class="w"> </span>-a<span class="w"> </span><span class="m">100</span><span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_ed25519
+</code></pre></div>
+- Key based authentication: ssh <code>will look into</code>.ssh/authorized_keys</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>.ssh/id_ed25519<span class="w"> </span>usr@rsercer
+</code></pre></div>
+<p>Copying files over SSH</p>
+<ul>
+<li><code>ssh+tee</code>:  <code>cat localfile | ssh remote_server tee serverfile</code></li>
+<li><code>scp</code>:  <code>scp path/to/local_file remote_host:path/to/remote_file</code></li>
+<li><code>rsync</code>:  a similar syntax to <code>scp</code></li>
+</ul>
+<p>Port Forwarding: <a href="https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot">Article of Port forwarding in StackOverflow</a></p>
+<ul>
+<li>Lock Port Forwarding</li>
+<li>Remote Port Forwarding</li>
+</ul>
+<p>SSH configuration:</p>
+<ul>
+<li>local: <code>~/.ssh/config</code></li>
+<li>server: <code>/etc/ssh/sshd_config</code></li>
+</ul>
+<p>Miscellaneous</p>
+<ul>
+<li><code>Mosh</code>: Improved ssh</li>
+<li><code>sshfs</code>: mount a folder on a remote server locally</li>
+</ul>
+<h2 id="q-a">Q &amp; A<a class="headerlink" href="#q-a" title="Permanent link">&para;</a></h2>
+<p>Difference between <code>source script.sh</code> and <code>./script.sh</code></p>
+<ul>
+<li>For <code>source</code> the commands are executed in your current bash session and thus any changes made to the current environment, like changing directories or defining functions will persist in the current session once the <code>source</code> command finishes executing.</li>
+<li>When running the script standalone like <code>./script.sh</code>, your current bash session starts a new instance of bash that will run the commands in <code>script.sh</code>.</li>
+</ul>
+<p><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Filesystem Hierarchy Standard - Wikipedia</a> :</p>
+<ul>
+<li><code>/bin</code> - 基本命令二进制文件</li>
+<li><code>/sbin</code> - 基本的系统二进制文件，通常是root运行的</li>
+<li><code>/dev</code> - 设备文件，通常是硬件设备接口文件</li>
+<li><code>/etc</code> - 主机特定的系统配置文件</li>
+<li><code>/home</code> - 系统用户的主目录</li>
+<li><code>/lib</code> - 系统软件通用库</li>
+<li><code>/opt</code> - 可选的应用软件</li>
+<li><code>/sys</code> - 包含系统的信息和配置(<a href="https://missing-semester-cn.github.io/2020/course-shell/">第一堂课</a>介绍的)</li>
+<li><code>/tmp</code> - 临时文件( <code>/var/tmp</code> ) 通常重启时删除</li>
+<li><code>/usr/</code> - 只读的用户数据</li>
+<li><code>/usr/bin</code> - 非必须的命令二进制文件</li>
+<li><code>/usr/sbin</code> - 非必须的系统二进制文件，通常是由root运行的</li>
+<li><code>/usr/local/bin</code> - 用户编译程序的二进制文件</li>
+<li><code>/var</code> -变量文件 像日志或缓存</li>
+</ul>
+<p>More tricks about VIm</p>
+<ul>
+<li>插件 - 花时间去探索插件。有很多不错的插件修复了vim的缺陷或者增加了能够与现有vim工作流结合的新功能。关于这部分内容，资源是<a href="https://vimawesome.com/">VimAwesome</a> 和其他程序员的dotfiles。</li>
+<li>标记 - 在vim里你可以使用 <code>m&lt;X&gt;</code> 为字母 <code>X</code> 做标记，之后你可以通过 <code>'&lt;X&gt;</code> 回到标记位置。这可以让你快速定位到文件内或文件间的特定位置。</li>
+<li>导航 - <code>Ctrl+O</code> 和 <code>Ctrl+I</code> 命令可以使你在最近访问位置前后移动。</li>
+<li>撤销树 - vim 有不错的更改跟踪机制，不同于其他的编辑器，vim存储变更树，因此即使你撤销后做了一些修改，你仍然可以通过撤销树的导航回到初始状态。一些插件比如 <a href="https://github.com/sjl/gundo.vim">gundo.vim</a> 和 <a href="https://github.com/mbbill/undotree">undotree</a> 通过图形化来展示撤销树。</li>
+<li>时间撤销 - <code>:earlier</code> 和 <code>:later</code> 命令使得你可以用时间而非某一时刻的更改来定位文件。</li>
+<li><a href="https://vim.fandom.com/wiki/Using_undo_branches#Persistent_undo">持续撤销</a> - 是一个默认未被开启的vim的内置功能，它在vim启动之间保存撤销历史，需要配置在 <code>.vimrc</code> 目录下的 <code>undofile</code> 和 <code>undodir</code>，vim会保存每个文件的修改历史。</li>
+<li>热键（Leader Key） - 热键是一个用于用户自定义配置命令的特殊按键。这种模式通常是按下后释放这个按键（通常是空格键）并与其他的按键组合去实现一个特殊的命令。插件也会用这些按键增加它们的功能，例如，插件UndoTree使用 <code>&lt;Leader&gt; U</code> 去打开撤销树。</li>
+<li>高级文本对象 - 文本对象比如搜索也可以用vim命令构成。例如，<code>d/&lt;pattern&gt;</code> 会删除下一处匹配 pattern 的字符串，<code>cgn</code> 可以用于更改上次搜索的关键字。</li>
+</ul>
+<p>Two Factor Authentication 2FA(双因子验证)</p>
+<p>Universal 2<sup>nd</sup> Factor（U2F）</p>
+<h2 id="readings">Readings<a class="headerlink" href="#readings" title="Permanent link">&para;</a></h2>
+<p><strong>tmux:</strong></p>
+<ul>
+<li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">A Quick and Easy Guide to tmux (hamvocke.com)</a></li>
+<li><a href="https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/">Making tmux Pretty and Usable - A Guide to Customizing your tmux.conf (hamvocke.com)</a></li>
+<li><a href="https://www.reddit.com/r/unixporn/">(3) r/unixporn - the home for *NIX customization! (reddit.com)</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Misaki&#39;s Blog">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Misaki's Blog
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../git/" class="md-footer__link md-footer__link--next" aria-label="Next: Git">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Git
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Misaki
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "content.tooltips", "header.autohide", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
