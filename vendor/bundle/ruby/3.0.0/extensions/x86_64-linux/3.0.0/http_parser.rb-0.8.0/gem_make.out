@@ -1,0 +1,9 @@
+current directory: /home/misaki/homepage/Misaki-Wang.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20250306-1258-jrzibh.rb extconf.rb
+creating Makefile
+
+current directory: /home/misaki/homepage/Misaki-Wang.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\= clean
+current directory: /home/misaki/homepage/Misaki-Wang.github.io/vendor/bundle/ruby/3.0.0/gems/http_parser.rb-0.8.0/ext/ruby_http_parser
+make DESTDIR\=
+make failedNo such file or directory - make
