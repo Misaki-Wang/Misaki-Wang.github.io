@@ -13,7 +13,7 @@ title                    : "Homepage"
 title_separator          : "-"
 name                     : &name "Yaochen Wang"
 description              : &description "personal description"
-url                      : https://misaki-wang.github.io/ # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+url                      : https://misaki-wang.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Misaki-Wang/Misaki-Wang.github.io"
 
@@ -25,7 +25,7 @@ author:
   avatar           : "self-photo.jpg"
   name             : "Yaochen Wang"
   pronouns         : # example: "she/her"  
-  bio              : "Carpe Diem! Seize the day, boys. Make your lives extraordinary!"
+  bio              : "Carpe Diem! Seize the day. Make your lives extraordinary!"
   location         : "Nanjing, China"
   # employer         : "Red Brick University"
   uri              : # URL
