@@ -5,6 +5,6 @@
 # prevent it from being included in the site.
 
 main:
-  # - title: "About me"
-  #   url: /publications/
+  - title: "About me"
+    url: /publications/
 
